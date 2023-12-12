@@ -33,7 +33,7 @@ Pipeline for sorting, comparing, and extracting information on nematode mitochon
 
  ## AGGREGATE AND CHECK GENOMES
 * Obtain Gene Sequences from the mtMG-Database
-* Download database fasta file: https://github.com/WormsEtAl/Nematode-Mitochondrial-Database
-* Generate list of genes you are targeting and save as genelist
-	* For example, the suggested list of genes for mitochondrial sequences: COX1, COX2, COX3, NAD1, NAD2, NAD3, NAD4, NAD4L, NAD5, NAD6, CYTB, ATP6
+	* Download database fasta file: https://github.com/WormsEtAl/Nematode-Mitochondrial-Database
+	* Generate list of genes you are targeting and save as genelist
+		* For example, the suggested list of genes for mitochondrial sequences: COX1, COX2, COX3, NAD1, NAD2, NAD3, NAD4, NAD4L, NAD5, NAD6, CYTB, ATP6
 	
