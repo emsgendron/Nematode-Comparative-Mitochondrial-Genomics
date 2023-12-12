@@ -10,6 +10,7 @@ Pipeline for sorting, comparing, and extracting information on nematode mitochon
 * PartitionFinder2
 	* This will require creating and activating a python2.7 environment for ParitionFinder
 		* `conda create -n partitionfinder Python=2.7`
+  		* `conda activate partitionfinder` 
 	* http://www.robertlanfear.com/partitionfinder/
  	* This will require a python2.7 environment on your machine
 	* Install the following python packages:
@@ -18,7 +19,7 @@ Pipeline for sorting, comparing, and extracting information on nematode mitochon
    		 `pip install -U scikit-learn`
 		 `conda install pytables`
 		
-		conda activate partitionfinder
+		
 		# This will require the installation of Miniconda/Anaconda for environment creation and activation
 		https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
 
