@@ -3,9 +3,9 @@ Pipeline for sorting, comparing, and extracting information on nematode mitochon
 
 # REQUIRED SOFTWARE
 * BASH compatable operating system or emulator
-	*Linux
-	*MACOSX
-  	*Unix emulator (https://www.puttygen.com/windows-terminal-emulators)
+	* Linux
+	* MACOSX
+  	* Unix emulator (https://www.puttygen.com/windows-terminal-emulators)
 
 * PartitionFinder2
 This will require a python2.7 environment on your machine
