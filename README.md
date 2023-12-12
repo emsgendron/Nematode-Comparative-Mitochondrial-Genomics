@@ -15,8 +15,8 @@ Pipeline for sorting, comparing, and extracting information on nematode mitochon
 	* Also install the following python packages:
 		* conda, install, numpy, pandas, pyparsing, and scipy	
 		* Example installation:
-   		 * `pip install -U scikit-learn`
-		 * `conda install pytables`
+   			* `pip install -U scikit-learn`
+			* `conda install pytables`
 		
 		
 		# This will require the installation of Miniconda/Anaconda for environment creation and activation
