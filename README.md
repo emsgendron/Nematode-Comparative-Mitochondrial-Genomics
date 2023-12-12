@@ -1,17 +1,16 @@
 # Nematode-Comparative-Mitochondrial-Genomics
 Pipeline for sorting, comparing, and extracting information on nematode mitochondrial genomes.
 
-#######################
-## REQUIRED SOFTWARE ##
-#######################
+# REQUIRED SOFTWARE
 * BASH compatable operating system or emulator
-	Linux
-	MACOSX
-  Unix emulator (https://www.puttygen.com/windows-terminal-emulators)
+	*Linux
+	*MACOSX
+  	*Unix emulator (https://www.puttygen.com/windows-terminal-emulators)
 
-* PartitionFinder2 # This will require a python2.7 environment on your machine
+* PartitionFinder2
+This will require a python2.7 environment on your machine
 http://www.robertlanfear.com/partitionfinder/
-	# Will require the following python packages
+Install the following python packages:
 	conda install numpy pandas pyparsing scipy
 	pip install -U scikit-learn
 	conda install pytables
