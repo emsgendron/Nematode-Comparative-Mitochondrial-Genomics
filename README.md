@@ -1,7 +1,7 @@
 # Nematode-Comparative-Mitochondrial-Genomics
 Pipeline for sorting, comparing, and extracting information on nematode mitochondrial genomes.
 
-# REQUIRED SOFTWARE
+## REQUIRED SOFTWARE
 * BASH compatable operating system or emulator
 	* Linux
 	* MACOSX
@@ -9,10 +9,10 @@ Pipeline for sorting, comparing, and extracting information on nematode mitochon
 * Miniconda/Anaconda
 	* Software link: https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
 * PartitionFinder2
+	* Software link: http://www.robertlanfear.com/partitionfinder/
 	* This will require creating and activating a python2.7 environment for ParitionFinder
 		* `conda create -n partitionfinder Python=2.7`
   		* `conda activate partitionfinder` 
-	* Software link: http://www.robertlanfear.com/partitionfinder/
 	* Also install the following python packages:
 		* conda, install, numpy, pandas, pyparsing, and scipy	
 		* Example installation:
