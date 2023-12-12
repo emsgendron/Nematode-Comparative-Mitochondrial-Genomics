@@ -36,27 +36,29 @@ Pipeline for sorting, comparing, and extracting information on nematode mitochon
 	* Download database fasta file: https://github.com/WormsEtAl/Nematode-Mitochondrial-Database
 	* Generate list of genes you are targeting and save as genelist
 		* For example, the suggested list of genes for mitochondrial sequences: COX1, COX2, COX3, NAD1, NAD2, NAD3, NAD4, NAD4L, NAD5, NAD6, CYTB, ATP6
- 
-
 	
 	### Extract taxa from the database
+		* Insert your database path
+  		* Change taxa names to extract taxa of interest
+  		* Insert your gene list path
 	`while read -r line
 	do
-	geneseqs=$(grep --no-group-separator -A 1 -w "$line" $PATH_to_your_database) # insert your database path 
-	grep --no-group-separator -A 1 $taxa <(echo "$geneseqs") >$taxa_"$line".fasta # change name of taxa to extract taxa of interest
-	done<$PATH_to_genelist # change path to your gene list`
+	geneseqs=$(grep --no-group-separator -A 1 -w "$line" $PATH_to_your_database) 
+	grep --no-group-separator -A 1 $taxa <(echo "$geneseqs") >$taxa_"$line".fasta
+	done<$PATH_to_genelist`
 	
 	
 	### Filter fasta files to only include unique sequence IDs
-	`for file in *.fasta # change for directory and file name format for your fasta files for each gene
-	do
-	grep '>' "$file" | sort | uniq >uniq_ids.list
-	while read -r line
-	do
-	grep --no-group-separator -A 1 -w "$line" "$file" | head -n2
-	done<uniq_ids.list >uniq_"$file"
-	rm uniq_ids.list
-	done`
+		* change for directory and file name format for your fasta files for each gene
+	`for file in *.fasta`
+	`do`
+	`grep '>' "$file" | sort | uniq >uniq_ids.list`
+	`while read -r line`
+	`do`
+	`grep --no-group-separator -A 1 -w "$line" "$file" | head -n2`
+	`done<uniq_ids.list >uniq_"$file"`
+	`rm uniq_ids.list`
+	`done`
 	
 	### Identify lowest number of shared taxa IDs across sequence files
 		* We use COX1 as my starting point since it has the best coverage and then filter down from there as I work through each gene
