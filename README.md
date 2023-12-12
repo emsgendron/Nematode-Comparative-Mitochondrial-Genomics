@@ -6,7 +6,8 @@ Pipeline for sorting, comparing, and extracting information on nematode mitochon
 	* Linux
 	* MACOSX
   	* Unix emulator (https://www.puttygen.com/windows-terminal-emulators)
-
+* Miniconda/Anaconda
+	* Software link: https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
 * PartitionFinder2
 	* This will require creating and activating a python2.7 environment for ParitionFinder
 		* `conda create -n partitionfinder Python=2.7`
@@ -17,28 +18,15 @@ Pipeline for sorting, comparing, and extracting information on nematode mitochon
 		* Example installation:
    			* `pip install -U scikit-learn`
 			* `conda install pytables`
-		
-		
-		# This will require the installation of Miniconda/Anaconda for environment creation and activation
-		https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
 
 * PAML
-http://abacus.gene.ucl.ac.uk/software/paml.html
+	* Software link: http://abacus.gene.ucl.ac.uk/software/paml.html
 
-* IQ-TREE # Can be either installed locally or you can use their webserver
-http://www.iqtree.org/
-# This pipeline makes use of the iq-tree webserver
+* IQ-TREE
+	* Can be either installed locally or you can use their webserver (this pipeline uses the webserver)
+	* Software link: http://www.iqtree.org/
 
 * R Statistics and Plotting
-https://www.r-project.org/
-	# Required libraries
-	'vegan'
-	'ape'
-	'tidyverse'
-	'ggplot2'
-	'viridis'
-	'geiger'
-	'pheatmap'
-	'RColorBrewer'
-	'lattice'
-
+	* Software link: https://www.r-project.org/
+	* Required libraries: vegan, ape, tidyverse, ggplot2, viridis, geiger, pheatmap, RColorBrewer, and lattice
+	
