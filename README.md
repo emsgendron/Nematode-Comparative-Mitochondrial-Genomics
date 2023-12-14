@@ -25,7 +25,9 @@ Pipeline for sorting, comparing, and extracting information on nematode mitochon
 * IQ-TREE
 	* Software link: http://www.iqtree.org/
 	* Can be either installed locally or you can use their webserver (this pipeline uses the webserver)
-	
+
+* MUSCLE Sequence Aligner
+	* Software link: https://www.drive5.com/muscle/  
 
 * R Statistics and Plotting
 	* Software link: https://www.r-project.org/
@@ -153,45 +155,65 @@ Pipeline for sorting, comparing, and extracting information on nematode mitochon
 
 ## CONCATONATE ALIGNMENTS TO GENERATE "GENOME" SEQUENCE
 ### Nucleotides "genome"
-* Ensure sequences are formated as two-line interleaved
-* format sequence IDs for any potentially rearranged sequences
-##
 	for file in adjacc_mafft_*
 	do
 	sed -i 's/_R_//g' "$file"
 	done
-
-* Concatenate Sequence Files
-##
+* Ensure sequences are formated as two-line interleaved
+* format sequence IDs for any potentially rearranged sequences
+#
 	paste adjacc*.fasta | sed 's/\t>Seq.*//g' | sed 's/\t//g' >concatanated_aln_pcgs.fasta
 	grep 'Seq' concatanated_aln_pcgs.fasta | sort | uniq >uniq_concat_ids.list
-
-* Insure no duplicate sequence IDs are present
-##
+* Concatenate Sequence Files
+#
 	while read -r line
 	do
 	grep --no-group-separator -A 1 -w "$line" concatanated_aln_pcgs.fasta | head -n2
 	done<uniq_concat_ids.list >uniq_concatanated_aln_pcgs.fasta
-
+* Insure no duplicate sequence IDs are present
 ### Amino Acid "genome"
-* Insure sequences are formated as two-line interleaved
-* Concatenate Sequence Files
-##
 	paste *.pep.aln | sed 's/\t>Seq.*//g' | sed 's/\t//g' >concatanated_aln_pcgs.faa
 	grep 'Seq' concatanated_aln_pcgs.faa | sort | uniq >uniq_concat_ids.list
-
-* Insure no duplicate sequence IDs are present
-##
+* Insure sequences are formated as two-line interleaved
+* Concatenate Sequence Files
+#
 	while read -r line
 	do
 	grep --no-group-separator -A 1 -w "$line" concatanated_aln_pcgs.faa | head -n2
 	done<uniq_concat_ids.list >uniq_concatanated_aln_pcgs.faa
-
-* Move your concatenated genomes into their own directory
-##
+* Insure no duplicate sequence IDs are present
+#
 	mkdir concat_genomes
 	mv concatanated* concat_genomes/
 	mv uniq_concat* concat_genomes/
+* Move your concatenated genomes into their own directory
+
+
+### CODON ALIGN EACH GENE FASTA
+* Now we do the codon alignment after determining correct orientation for each sequence
+* remove alignment gaps and realign as a codon alignment
+
+## Format mafft alignment files for CODON alignment
+	for file in mafftadj_*
+	do
+	sed -i 's/-//g' "$file"
+	done
+* SKIP IF NOT APPLYING TO CODON ALIGNMENT
+
+## Codon alignment
+	for file in mafftadj_*
+	do
+	perl ~/perl_scripts/codon_alignment-master/codon_alignment_e1.pl "$file" 5 0.1
+	wait
+	muscle -align "$file".pep -output "$file".pep.aln
+	wait
+	perl ~/perl_scripts/codon_alignment-master/codon_alignment_e1.pl "$file" 5 0.1
+	wait
+	muscle -align "$file".pep.aln.cleanup -output "$file".pep.aln.cleanup.aln
+	wait
+	perl ~/perl_scripts/codon_alignment-master/codon_alignment_e1.pl "$file" 5 0.1
+	wait
+	done
 
 
 
